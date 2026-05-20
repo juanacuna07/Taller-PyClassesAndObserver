@@ -75,44 +75,19 @@ Más adelante crearás también `SuscriptorSMS` y `CanalNoticias`.
 
 ## Implementar Observer paso a paso
 
-El patrón Observer separa un objeto que cambia, llamado sujeto observable, de los objetos que reaccionan al cambio, llamados observadores.
-
 En este proyecto:
+- `CanalNoticias` es el sujeto observable: guarda la lista de observadores y les avisa cuando hay una noticia.
+- `SuscriptorEmail` y `SuscriptorSMS` son los observadores: reciben el mensaje y lo guardan en su lista interna.
 
-- `CanalNoticias` es el sujeto observable.
-- `SuscriptorEmail` y `SuscriptorSMS` son observadores.
-- `suscribir` agrega observadores.
-- `desuscribir` elimina observadores.
-- `notificar` llama `actualizar(mensaje)` en cada observador.
-- `publicar` guarda el último mensaje y notifica a todos.
-
-Una posible forma de organizarlo:
-
-```python
-class CanalNoticias:
-    def __init__(self, nombre):
-        self.nombre = nombre
-        self.observadores = []
-        self.ultimo_mensaje = None
-
-    def suscribir(self, observador):
-        if observador not in self.observadores:
-            self.observadores.append(observador)
-
-    def desuscribir(self, observador):
-        if observador in self.observadores:
-            self.observadores.remove(observador)
-
-    def notificar(self, mensaje):
-        for observador in self.observadores:
-            observador.actualizar(mensaje)
-
-    def publicar(self, mensaje):
-        self.ultimo_mensaje = mensaje
-        self.notificar(mensaje)
+Para ejecutar la demo:
+```bash
+python src/main.py
 ```
 
-Puedes usar una clase base abstracta o un `Protocol` para expresar que todo observador debe tener un método `actualizar`.
+Para ejecutar las pruebas:
+```bash
+python -m pytest
+```
 
 ## Ejecutar la demo
 
@@ -162,4 +137,4 @@ Al terminar las misiones, se creará un issue final de calificación. Ejecuta ma
 
 ## Autores
 
-- Reemplaza esta línea con tu nombre, grupo, curso o rol.
+- Juan Acuña – Ingeniería de sistemas – Ingenieria de software
