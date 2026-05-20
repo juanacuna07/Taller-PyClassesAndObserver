@@ -21,12 +21,12 @@ El workflow **Iniciar práctica** también puede ejecutarse con el primer `push`
 
 ## Crear el entorno virtual
 
-Primero clona tu copia del repositorio y entra a la carpeta del proyecto:
+Después de clonar el repositorio, ejecuta los siguientes comandos:
 
 ```bash
-git clone https://github.com/TU_USUARIO/NOMBRE_DEL_REPOSITORIO.git
-cd NOMBRE_DEL_REPOSITORIO
-git status
+python -m venv .venv
+.venv\Scripts\activate
+pip install -r requirements.txt
 ```
 
 Después de clonar el repositorio, completa esta sección durante la primera misión con los comandos para crear, activar y preparar el entorno virtual.
